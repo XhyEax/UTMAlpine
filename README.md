@@ -19,7 +19,7 @@ iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
 PortFoward: 8080->8080
 
-installed packages: python3 gcc make tailscale usbmuxd JitStreamer (and many compile dependences)
+installed packages: python3 gcc make tailscale usbmuxd JitStreamer (and many compile dependences, like libimobiledevice-glue)
 
 1. start tailscale and JitStreamer in UTM SE
    
