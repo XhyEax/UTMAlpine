@@ -12,4 +12,5 @@ autorun script: sac.sh
 
 ## JITStreamer in UTM
 PortFoward: 8080->8080，49151->49151
+
 installed packages: python3 gcc make tailscale usbmuxd JitStreamer
