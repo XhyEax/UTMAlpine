@@ -10,6 +10,6 @@ installed packages: git nodejs npm
 
 autorun script: sac.sh
 
-## JITStreamer
+## JITStreamer in UTM
 PortFoward: 8080->8080，49151->49151
 installed packages: python3 gcc make tailscale usbmuxd JitStreamer
