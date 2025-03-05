@@ -4,7 +4,8 @@ User: root
 
 Password: password
 
-PortFoward: 22->8022, 8000->8000，8080->8080
+PortFoward: 22->8022, 8000->8000
+(>v1.0.1: 8080->8080，49151->49151）
 
 installed packages: git nodejs npm
 
