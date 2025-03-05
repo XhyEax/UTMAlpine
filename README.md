@@ -24,7 +24,7 @@ get udid by PC:
 pymobiledevice3 usbmux list
 ```
 
-pair record:
+get pair record:
 ```
 macOS: ~/Library/Lockdown/
 Linux: /var/lib/lockdown/
