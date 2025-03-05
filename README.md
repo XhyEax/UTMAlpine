@@ -16,9 +16,10 @@ iOS < 17：AltServer
 iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
 ## JITStreamer self connection by UTM SE (slow to start)
-PortFoward: 8080->8080，49151->49151(not used)
 
-installed packages: python3 gcc make tailscale usbmuxd JitStreamer
+PortFoward: 8080->8080
+
+installed packages: python3 gcc make tailscale usbmuxd JitStreamer (and many compile dependences)
 
 1. start tailscale and JitStreamer in UTM SE
    
