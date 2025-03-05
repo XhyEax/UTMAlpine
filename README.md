@@ -10,6 +10,11 @@ installed packages: git nodejs npm
 
 autorun script: sac.sh
 
+## [Recommend]start JIT by PC
+iOS < 17：AltServer
+
+iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
+
 ## JITStreamer self connection by UTM SE (slow to start)
 PortFoward: 8080->8080，49151->49151(not used)
 
