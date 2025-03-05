@@ -11,7 +11,7 @@ installed packages: git nodejs npm
 autorun script: sac.sh
 
 ## JITStreamer self connection by UTM SE
-PortFoward: 8080->8080，49151->49151
+PortFoward: 8080->8080，49151->49151(not used)
 
 installed packages: python3 gcc make tailscale usbmuxd JitStreamer
 
