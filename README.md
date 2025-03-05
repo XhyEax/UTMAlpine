@@ -18,7 +18,8 @@ installed packages: python3 gcc make tailscale usbmuxd JitStreamer
 1. start tailscale and JitStreamer in UIM SE
    
 2. post lockdownd {udid}.plst to UTM
-udid:
+   
+get udid by PC:
 ```
 pymobiledevice3 usbmux list
 ```
