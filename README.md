@@ -10,12 +10,12 @@ installed packages: git nodejs npm
 
 autorun script: sac.sh
 
-## JITStreamer self connection by UTM SE
+## JITStreamer self connection by UTM SE (slow to start)
 PortFoward: 8080->8080，49151->49151(not used)
 
 installed packages: python3 gcc make tailscale usbmuxd JitStreamer
 
-1. start tailscale and JitStreamer in UIM SE
+1. start tailscale and JitStreamer in UTM SE
    
 2. post lockdownd {udid}.plst to UTM
    
