@@ -16,26 +16,6 @@ iOS < 17：AltServer
 
 iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
-## [testing]start JIT by Remote PC with TailScale
-
-1. start TailScale on iOS and PC
-
-[https://tailscale.com/download](https://tailscale.com/download)
-
-2. restart JitStreamer on PC and send pair record
-[JitStreamer](https://github.com/jawshoeadan/JitStreamer)
-
-[Shoutcuts](https://www.icloud.com/shortcuts/f34906a2792e4f4b81b639a6853af403)
-
-3. test connection
-```
-curl http://{pcip}:8080/{udid}
-```
-
-4. start JIT by http request
-```
-curl http://{pcip}:8080/{udid}/UTM
-```
 
 ## JITStreamer self connection by UTM SE (slow to start)
 
@@ -68,4 +48,25 @@ curl http://127.0.0.1:8080/{udid}
 4. start JIT by http request
 ```
 curl http://127.0.0.1:8080/{udid}/UTM
+```
+
+## [testing]start JIT by Remote PC with TailScale
+
+1. start TailScale on iOS and PC
+
+[https://tailscale.com/download](https://tailscale.com/download)
+
+2. restart JitStreamer on PC and send pair record
+[JitStreamer](https://github.com/jawshoeadan/JitStreamer)
+
+[Shoutcuts](https://www.icloud.com/shortcuts/f34906a2792e4f4b81b639a6853af403)
+
+3. test connection
+```
+curl http://{pcip}:8080/{udid}
+```
+
+4. start JIT by http request
+```
+curl http://{pcip}:8080/{udid}/UTM
 ```
