@@ -16,7 +16,7 @@ iOS < 17：AltServer
 
 iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
-## [Recommend]start JIT by Remote PC with TailScale
+## [testing]start JIT by Remote PC with TailScale
 iOS < 17：AltServer
 
 iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
@@ -30,12 +30,12 @@ iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
 3. test connection
 ```
-curl http://{pcip}:49151/{udid}
+curl http://{pcip}:8080/{udid}
 ```
 
 4. start JIT by http request
 ```
-curl http://{pcip}:49151/{udid}/UTM
+curl http://{pcip}:8080/{udid}/UTM
 ```
 
 ## JITStreamer self connection by UTM SE (slow to start)
