@@ -30,12 +30,12 @@ iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
 3. test connection
 ```
-curl http://{pcip}:8080/{udid}
+curl http://{pcip}:49151/{udid}
 ```
 
 4. start JIT by http request
 ```
-curl http://{pcip}:8080/{udid}/UTM
+curl http://{pcip}:49151/{udid}/UTM
 ```
 
 ## JITStreamer self connection by UTM SE (slow to start)
