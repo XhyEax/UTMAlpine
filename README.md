@@ -24,12 +24,14 @@ iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
 [https://tailscale.com/download](https://tailscale.com/download)
 
+2. restart JitStreamer in PC
+   
 3. test connection
 ```
 curl http://{pcip}:8080/{udid}
 ```
 
-3. start JIT by http request
+4. start JIT by http request
 ```
 curl http://{pcip}:8080/{udid}/UTM
 ```
