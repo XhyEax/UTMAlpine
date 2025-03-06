@@ -10,16 +10,34 @@ installed packages: git nodejs npm
 
 autorun script: sac.sh
 
-## [Recommend]start JIT by PC
+# How to start JIT
+## [Recommend]start JIT by Local PC
 iOS < 17：AltServer
 
 iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
+
+## [Recommend]start JIT by Remote PC with TailScale
+iOS < 17：AltServer
+
+iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
+1. download TailScale in iOS and PC
+[https://tailscale.com/download](https://tailscale.com/download)
+
+3. test connection
+```
+curl {pcip}:8080/{udid}
+```
+
+3. start JIT by http request
+```
+curl {pcip}:8080/{udid}/UTM
+```
 
 ## JITStreamer self connection by UTM SE (slow to start)
 
 PortFoward: 8080->8080
 
-installed packages: python3 gcc make tailscale usbmuxd JitStreamer (and many compile dependences, like libimobiledevice-glue)
+installed packages: python3 gcc make TailScale usbmuxd JitStreamer (and many compile dependences, like libimobiledevice-glue)
 
 1. start tailscale and JitStreamer in UTM SE
    
