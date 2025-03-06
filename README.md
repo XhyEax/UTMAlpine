@@ -21,16 +21,17 @@ iOS < 17：AltServer
 
 iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 1. download TailScale in iOS and PC
+
 [https://tailscale.com/download](https://tailscale.com/download)
 
 3. test connection
 ```
-curl {pcip}:8080/{udid}
+curl http://{pcip}:8080/{udid}
 ```
 
 3. start JIT by http request
 ```
-curl {pcip}:8080/{udid}/UTM
+curl http://{pcip}:8080/{udid}/UTM
 ```
 
 ## JITStreamer self connection by UTM SE (slow to start)
@@ -55,12 +56,13 @@ Linux: /var/lib/lockdown/
 Windows: C:\ProgramData\Apple\Lockdown\
 ```
 
-3. test connection
+3. test connection get udid list apps
 ```
-curl 127.0.0.1:8080/{udid}
+curl http://127.0.0.1:8080
+curl http://127.0.0.1:8080/{udid}
 ```
 
 4. start JIT by http request
 ```
-curl 127.0.0.1:8080/{udid}/UTM
+curl http://127.0.0.1:8080/{udid}/UTM
 ```
