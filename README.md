@@ -24,8 +24,10 @@ iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
 [https://tailscale.com/download](https://tailscale.com/download)
 
-2. restart JitStreamer on PC
+2. restart JitStreamer on PC and send pair record
    
+[Shoutcuts](https://www.icloud.com/shortcuts/f34906a2792e4f4b81b639a6853af403)
+
 3. test connection
 ```
 curl http://{pcip}:8080/{udid}
