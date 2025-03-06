@@ -17,9 +17,8 @@ iOS < 17：AltServer
 iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
 ## [testing]start JIT by Remote PC with TailScale
-iOS < 17：AltServer
+[JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 
-iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 1. start TailScale on iOS and PC
 
 [https://tailscale.com/download](https://tailscale.com/download)
