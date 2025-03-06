@@ -20,11 +20,11 @@ iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
 iOS < 17：AltServer
 
 iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
-1. download TailScale in iOS and PC
+1. download TailScale on iOS and PC
 
 [https://tailscale.com/download](https://tailscale.com/download)
 
-2. restart JitStreamer in PC
+2. restart JitStreamer on PC
    
 3. test connection
 ```
