@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="Ver2.9.6"
+version="Ver2.9.7"
 clewd_version="$(grep '"version"' "clewd/package.json" | awk -F '"' '{print $4}')($(grep "Main = 'clewd修改版 v'" "clewd/lib/clewd-utils.js" | awk -F'[()]' '{print $3}'))"
 st_version=$(grep '"version"' "SillyTavern/package.json" | awk -F '"' '{print $4}')
 echo "hoping：卡在这里了？...说明有小猫没开魔法喵~"
@@ -32,9 +32,9 @@ if command -v node &> /dev/null; then
     node --version
 else
     echo "node指令不存在，正在尝试重新下载喵~"
-    curl -O https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-arm64.tar.xz
-    tar xf node-v20.10.0-linux-arm64.tar.xz
-    echo "export PATH=\$PATH:/root/node-v20.10.0-linux-arm64/bin" >>/etc/profile
+    curl -O https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-arm64.tar.xz
+    tar xf node-v22.14.0-linux-arm64.tar.xz
+    echo "export PATH=\$PATH:/root/node-v22.14.0-linux-arm64/bin" >>/etc/profile
     source /etc/profile
     if command -v node &> /dev/null; then
         echo "node成功下载"
