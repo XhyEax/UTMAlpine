@@ -19,8 +19,6 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 kill_unix() {
-  echo "Searching for clewd.js processes on Unix-like system..."
-  
   # Check ps command format and determine PID column
   PS_TEST=$(ps -ef 2>/dev/null | head -n 1)
   if [ $? -eq 0 ]; then
@@ -45,9 +43,10 @@ kill_unix() {
   fi
 
   if [ -z "$PIDS" ]; then
-    echo "No clewd.js processes found."
+    # echo "No clewd.js processes found."
+    :
   else
-    echo "Found clewd.js processes with PIDs: $PIDS"
+    # echo "Found clewd.js processes with PIDs: $PIDS"
     for PID in $PIDS; do
       echo "Killing process $PID..."
       kill -9 $PID 2>/dev/null
