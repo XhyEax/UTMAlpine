@@ -99,7 +99,6 @@ if command -v node &> /dev/null; then
 else
     echo "node指令不存在，正在尝试重新下载喵~"
     update_node
-  fi
 fi
 
 #添加termux上的Ubuntu/root软链接
