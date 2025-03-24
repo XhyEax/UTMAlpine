@@ -55,6 +55,35 @@ kill_unix() {
   fi
 }
 
+update_node() {
+  # 定义Node.js版本和架构变量
+  NODE_VERSION="22.14.0"
+  NODE_ARCH="linux-arm64"
+  
+  # 构建文件名和目录名
+  NODE_FILE="node-v${NODE_VERSION}-${NODE_ARCH}.tar.xz"
+  NODE_DIR="node-v${NODE_VERSION}-${NODE_ARCH}"
+  
+  # 下载Node.js
+  curl -O "https://nodejs.org/dist/v${NODE_VERSION}/${NODE_FILE}"
+  
+  # 解压文件
+  tar xf "${NODE_FILE}"
+  
+  # 添加到PATH
+  echo "export PATH=/root/${NODE_DIR}/bin:\$PATH" >>/etc/profile
+  source /etc/profile
+  
+  # 检查安装是否成功
+  if command -v node &> /dev/null; then
+    echo "node成功下载"
+    node --version
+  else
+    echo "node下载失败，╮(︶﹏︶)╭，自己尝试手动下载吧: curl -O https://nodejs.org/dist/v${NODE_VERSION}/${NODE_FILE}"
+    exit 1
+  fi
+}
+
 # 检查是否存在git指令
 if command -v git &> /dev/null; then
     echo "git指令存在"
@@ -69,17 +98,7 @@ if command -v node &> /dev/null; then
     node --version
 else
     echo "node指令不存在，正在尝试重新下载喵~"
-    curl -O https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-arm64.tar.xz
-    tar xf node-v22.14.0-linux-arm64.tar.xz
-    echo "export PATH=\$PATH:/root/node-v22.14.0-linux-arm64/bin" >>/etc/profile
-    source /etc/profile
-    if command -v node &> /dev/null; then
-        echo "node成功下载"
-        node --version                                                
-    else
-        echo "node下载失败，╮(︶﹏︶)╭，自己尝试手动下载吧"
-        exit 1
-
+    update_node
   fi
 fi
 
@@ -876,6 +895,7 @@ do
 \033[0;33m选项5 神秘小链接$saclinkemoji\033[0m
 \033[0;33m--------------------------------------\033[0m
 \033[0;31m选项6 更新脚本\033[0m
+\033[0;32m选项7 更新Node\033[0m
 \033[0;33m--------------------------------------\033[0m
 \033[0;35m不准选其他选项，听到了吗？
 \033[0m\n(⇀‸↼‶)"
@@ -920,6 +940,11 @@ do
         6)
             # 更新脚本
             curl -O https://raw.githubusercontent.com/XhyEax/UTMAlpine/main/sac.sh
+	    echo -e "重启终端或者输入bash sac.sh重新进入脚本喵~"
+            break ;;
+	7)
+            # 更新Node
+            update_node
 	    echo -e "重启终端或者输入bash sac.sh重新进入脚本喵~"
             break ;;
         *) 
