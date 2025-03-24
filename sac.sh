@@ -930,13 +930,13 @@ do
             #SillyTavern设置
             sillyTavernSettings
             ;; 
-		5)
-			saclinkname=$(curl -s https://raw.githubusercontent.com/hopingmiao/termux_using_Claue/main/secret_saclink | awk -F '|' '{print $1 }')
-			echo -e "神秘小链接会不定期悄悄更新，这次的神秘小链接是..."
-			sleep 2
-			echo $saclinkname
-			termux-open-url $(curl -s https://raw.githubusercontent.com/hopingmiao/termux_using_Claue/main/secret_saclink | awk -F '|' '{print $2 }')
-			;;
+        5)
+            saclinkname=$(curl -s https://raw.githubusercontent.com/hopingmiao/termux_using_Claue/main/secret_saclink | awk -F '|' '{print $1 }')
+            echo -e "神秘小链接会不定期悄悄更新，这次的神秘小链接是..."
+            sleep 2
+            echo $saclinkname
+            # termux-open-url $(curl -s https://raw.githubusercontent.com/hopingmiao/termux_using_Claue/main/secret_saclink | awk -F '|' '{print $2 }')
+            ;;
         6)
             # 更新脚本
             curl -O https://raw.githubusercontent.com/XhyEax/UTMAlpine/main/sac.sh
