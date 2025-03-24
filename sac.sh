@@ -398,7 +398,7 @@ function clewdSettings {
                             echo "命名不能为空，快重新输入🐱喵~"
                         done
                         mv config.js "config_$sactag_value.js"
-                        kill_unix();
+                        kill_unix
                         bash start.sh
                         sed -i'' -e "/\"Settings\": {/,/}/{ /[^,]$/!b; /}/i\\        ,\"sactag\": \"$newsactag\"" -e '}' "config.js"
                         cd /root
@@ -889,7 +889,7 @@ do
             #启动Clewd
             port=$(grep -oP '"Port":\s*\K\d+' clewd/config.js)
             echo "端口为$port, 出现 (x)Login in {邮箱} 代表启动成功, 后续出现AI无法应答等报错请检查本窗口喵。"
-			kill_unix();
+			kill_unix
             cd clewd
             bash start.sh
             echo "Clewd已关闭, 即将返回主菜单"
