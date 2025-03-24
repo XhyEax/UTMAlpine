@@ -64,22 +64,41 @@ update_node() {
   NODE_FILE="node-v${NODE_VERSION}-${NODE_ARCH}.tar.xz"
   NODE_DIR="node-v${NODE_VERSION}-${NODE_ARCH}"
   
+  # 检查node是否已安装
+  if command -v node &> /dev/null; then
+    # 获取当前版本号
+    CURRENT_VERSION=$(node --version | sed 's/^v//')
+    
+    # 比较版本号
+    if [ "$CURRENT_VERSION" = "$NODE_VERSION" ]; then
+      echo "当前Node.js版本已是v${NODE_VERSION}，无需更新"
+      return 0
+    else
+      echo "当前Node.js版本为v${CURRENT_VERSION}，将更新至v${NODE_VERSION}"
+    fi
+  else
+    echo "未检测到Node.js，将安装v${NODE_VERSION}"
+  fi
+  
   # 下载Node.js
+  echo "正在下载Node.js v${NODE_VERSION}..."
   curl -O "https://nodejs.org/dist/v${NODE_VERSION}/${NODE_FILE}"
   
   # 解压文件
+  echo "正在解压文件..."
   tar xf "${NODE_FILE}"
   
   # 添加到PATH
+  echo "正在配置环境变量..."
   echo "export PATH=/root/${NODE_DIR}/bin:\$PATH" >>/etc/profile
   source /etc/profile
   
   # 检查安装是否成功
   if command -v node &> /dev/null; then
-    echo "node成功下载"
-    node --version
+    NEW_VERSION=$(node --version)
+    echo "Node.js ${NEW_VERSION} 安装成功"
   else
-    echo "node下载失败，╮(︶﹏︶)╭，自己尝试手动下载吧: curl -O https://nodejs.org/dist/v${NODE_VERSION}/${NODE_FILE}"
+    echo "Node.js安装失败，╮(︶﹏︶)╭，请尝试手动下载: curl -O https://nodejs.org/dist/v${NODE_VERSION}/${NODE_FILE}"
     exit 1
   fi
 }
