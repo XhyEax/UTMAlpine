@@ -19,6 +19,8 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 kill_unix() {
+  local PROCESS_NAME="$1"
+  
   # Check ps command format and determine PID column
   PS_TEST=$(ps -ef 2>/dev/null | head -n 1)
   if [ $? -eq 0 ]; then
@@ -26,32 +28,32 @@ kill_unix() {
     # Check if PID is in first or second column by looking at header
     if echo "$PS_TEST" | grep -q "^UID"; then
       # Standard format: UID PID PPID...
-      PIDS=$(ps -ef | grep clewd.js | grep -v grep | awk '{print $2}')
+      PIDS=$(ps -ef | grep "$PROCESS_NAME" | grep -v grep | awk '{print $2}')
     else
       # Some systems might have PID as first column
-      PIDS=$(ps -ef | grep clewd.js | grep -v grep | awk '{print $1}')
+      PIDS=$(ps -ef | grep "$PROCESS_NAME" | grep -v grep | awk '{print $1}')
     fi
   elif ps aux >/dev/null 2>&1; then
     # Try BSD-style ps aux format
-    PIDS=$(ps aux | grep clewd.js | grep -v grep | awk '{print $2}')
+    PIDS=$(ps aux | grep "$PROCESS_NAME" | grep -v grep | awk '{print $2}')
   elif ps >/dev/null 2>&1; then
     # Minimal ps command
-    PIDS=$(ps | grep clewd.js | grep -v grep | awk '{print $1}')
+    PIDS=$(ps | grep "$PROCESS_NAME" | grep -v grep | awk '{print $1}')
   else
     # Last resort: try pgrep
-    PIDS=$(pgrep -f clewd.js 2>/dev/null)
+    PIDS=$(pgrep -f "$PROCESS_NAME" 2>/dev/null)
   fi
 
   if [ -z "$PIDS" ]; then
-    # echo "No clewd.js processes found."
+    # echo "No $PROCESS_NAME processes found."
     :
   else
-    # echo "Found clewd.js processes with PIDs: $PIDS"
+    # echo "Found $PROCESS_NAME processes with PIDs: $PIDS"
     for PID in $PIDS; do
       echo "Killing process $PID..."
       kill -9 $PID 2>/dev/null
     done
-    echo "All clewd.js processes terminated."
+    echo "All $PROCESS_NAME processes terminated."
   fi
 }
 
@@ -434,7 +436,7 @@ function clewdSettings {
                             echo "命名不能为空，快重新输入🐱喵~"
                         done
                         mv config.js "config_$sactag_value.js"
-                        kill_unix
+                        kill_unix "clewd.js"
                         bash start.sh
                         sed -i'' -e "/\"Settings\": {/,/}/{ /[^,]$/!b; /}/i\\        ,\"sactag\": \"$newsactag\"" -e '}' "config.js"
                         cd /root
@@ -926,7 +928,7 @@ do
             #启动Clewd
             port=$(grep -oP '"Port":\s*\K\d+' clewd/config.js)
             echo "端口为$port, 出现 (x)Login in {邮箱} 代表启动成功, 后续出现AI无法应答等报错请检查本窗口喵。"
-			kill_unix
+			kill_unix "clewd.js"
             cd clewd
             bash start.sh
             echo "Clewd已关闭, 即将返回主菜单"
@@ -934,7 +936,7 @@ do
             ;; 
         2) 
             #启动SillyTavern
-			ps -ef | grep server.js | awk '{print$1}' | xargs kill -9
+			kill_unix "server.js"
             cd SillyTavern
 	        bash start.sh
             echo "酒馆已关闭, 即将返回主菜单"
