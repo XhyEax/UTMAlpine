@@ -66,6 +66,15 @@ kill_unix() {
   fi
 }
 
+# 启动酒馆 / Start SillyTavern
+start_sillytavern() {
+    kill_unix "server.js"
+    cd SillyTavern
+    bash start.sh
+    echo "酒馆已关闭, 即将返回主菜单 / SillyTavern closed, returning to the main menu"
+    cd ../
+}
+
 update_node() {
   # 定义Node.js版本和架构变量 / Define Node.js version and arch variables
   NODE_VERSION="22.14.0"
@@ -508,6 +517,13 @@ function TavernAI-extrasstart {
 
 
 }
+
+# 命令行参数：sac.sh st 直接启动酒馆后退出 / CLI argument: run `sac.sh st` to start SillyTavern directly and exit
+if [ "$1" = "st" ]; then
+    start_sillytavern
+    exit 0
+fi
+
 # 主菜单 / Main menu
 echo -e "
 喵喵一键脚本 / Meow All-in-One Script
@@ -536,11 +552,7 @@ do
             break ;;
         1)
             #启动SillyTavern / Start SillyTavern
-			kill_unix "server.js"
-            cd SillyTavern
-	        bash start.sh
-            echo "酒馆已关闭, 即将返回主菜单 / SillyTavern closed, returning to the main menu"
-            cd ../
+            start_sillytavern
             ;;
         2)
             #SillyTavern设置 / SillyTavern settings
