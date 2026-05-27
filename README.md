@@ -4,11 +4,16 @@ User: root
 
 Password: password
 
+SSH Login: `ssh -p 8022 root@127.0.0.1`
+
 PortFoward: 22->8022, 8000->8000
 
 installed packages: git nodejs npm
 
 autorun script: sac.sh
+
+PS: `Compiling frontend libraries...` may take a few minutes.
+
 
 # How to start JIT
 ## [Recommend]iloader on PC and StikDebug、LocalDevVPN on iOS、in same wifi
