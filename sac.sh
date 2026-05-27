@@ -1,11 +1,24 @@
 #!/bin/bash
 
 version="Ver3.0.0"
+
+# 更新脚本本体 / Update the script itself
+update_script() {
+    echo -e "正在更新脚本喵~ / Updating the script~"
+    curl -O https://raw.githubusercontent.com/XhyEax/UTMAlpine/main/sac.sh
+    echo -e "重启终端或者输入bash sac.sh重新进入脚本喵~ / Restart the terminal or run bash sac.sh to re-enter the script~"
+}
+
+# 命令行参数：sac.sh update 直接更新脚本本体后退出 / CLI argument: run `sac.sh update` to update the script itself and exit
+if [ "$1" = "update" ]; then
+    update_script
+    exit 0
+fi
+
 st_version=$(grep '"version"' "SillyTavern/package.json" | awk -F '"' '{print $4}')
 echo "hoping：卡在这里了？...说明有小猫没开魔法喵~ / Stuck here? It means your magic (proxy) isn't on~"
 latest_version=$(curl -s https://raw.githubusercontent.com/XhyEax/UTMAlpine/main/VERSION)
 st_latest=$(curl -s https://raw.githubusercontent.com/SillyTavern/SillyTavern/release/package.json | grep '"version"' | awk -F '"' '{print $4}')
- saclinkemoji=$(curl -s https://raw.githubusercontent.com/hopingmiao/termux_using_Claue/main/secret_saclink | awk -F '|' '{print $3 }')
 # hopingmiao=hotmiao
 #
 
@@ -498,11 +511,8 @@ function TavernAI-extrasstart {
 # 主菜单 / Main menu
 echo -e "
 喵喵一键脚本 / Meow All-in-One Script
-作者 / Author：hoping喵(懒喵~)，水秋喵(苦等hoping喵起床)
 版本 / Version：酒馆/ST:$st_version 脚本/Script:$version
 最新 / Latest：\033[5;36m酒馆/ST:$st_latest\033[0m \033[0;33m脚本/Script:$latest_version\033[0m
-来自 / From：Claude先行破限组
-群号 / QQ Groups：704819371，910524479，304690608
 类脑Discord(角色卡发布等 / character cards etc.): https://discord.gg/HWNkueX34q
 此程序完全免费，不允许对脚本/教程进行盗用/商用。运行时需要稳定的魔法网络环境。
 This program is completely free; reselling or commercial use of the script/tutorial is prohibited. A stable proxy network is required while running."
@@ -513,10 +523,9 @@ do
 \033[0;31m选项0 退出脚本 / Exit script\033[0m
 \033[0;33m选项1 启动酒馆 / Start SillyTavern\033[0m
 \033[0;37m选项2 酒馆设置 / SillyTavern settings\033[0m
-\033[0;33m选项3 神秘小链接 / Secret little link$saclinkemoji\033[0m
 \033[0;33m--------------------------------------\033[0m
-\033[0;31m选项4 更新脚本 / Update script\033[0m
-\033[0;32m选项5 更新Node / Update Node\033[0m
+\033[0;31m选项3 更新脚本 / Update script\033[0m
+\033[0;32m选项4 更新Node / Update Node\033[0m
 \033[0;33m--------------------------------------\033[0m
 \033[0;35m不准选其他选项，听到了吗？/ Don't pick anything else, okay?
 \033[0m\n"
@@ -538,18 +547,10 @@ do
             sillyTavernSettings
             ;;
         3)
-            saclinkname=$(curl -s https://raw.githubusercontent.com/hopingmiao/termux_using_Claue/main/secret_saclink | awk -F '|' '{print $1 }')
-            echo -e "神秘小链接会不定期悄悄更新，这次的神秘小链接是... / The secret link updates quietly from time to time; this time it is..."
-            sleep 2
-            echo $saclinkname
-            # termux-open-url $(curl -s https://raw.githubusercontent.com/hopingmiao/termux_using_Claue/main/secret_saclink | awk -F '|' '{print $2 }')
-            ;;
-        4)
             # 更新脚本 / Update script
-            curl -O https://raw.githubusercontent.com/XhyEax/UTMAlpine/main/sac.sh
-	    echo -e "重启终端或者输入bash sac.sh重新进入脚本喵~ / Restart the terminal or run bash sac.sh to re-enter the script~"
+            update_script
             break ;;
-	5)
+	4)
             # 更新Node / Update Node
             update_node
 	    echo -e "重启终端或者输入bash sac.sh重新进入脚本喵~ / Restart the terminal or run bash sac.sh to re-enter the script~"

@@ -14,6 +14,7 @@ autorun script: sac.sh
 
 PS: `Compiling frontend libraries...` may take a few minutes.
 
+You can narrow down Memory after first init run.
 
 # How to start JIT
 ## [Recommend]iloader on PC and StikDebug、LocalDevVPN on iOS、in same wifi
