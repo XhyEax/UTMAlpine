@@ -519,7 +519,7 @@ do
 \033[0;32m选项5 更新Node / Update Node\033[0m
 \033[0;33m--------------------------------------\033[0m
 \033[0;35m不准选其他选项，听到了吗？/ Don't pick anything else, okay?
-\033[0m\n(⇀‸↼‶)"
+\033[0m\n"
     read -n 1 option
     echo
     case $option in
