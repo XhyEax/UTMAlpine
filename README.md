@@ -11,7 +11,10 @@ installed packages: git nodejs npm
 autorun script: sac.sh
 
 # How to start JIT
-## [Recommend]start JIT by Local PC
+## [Recommend]iloader on PC and StikDebug、LocalDevVPN on iOS、in same wifi
+Just Ask AI how to install and configure.
+
+## start JIT by Local PC
 iOS < 17：AltServer
 
 iOS 17+: [JitStreamer](https://github.com/jawshoeadan/JitStreamer)
